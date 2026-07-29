@@ -186,3 +186,16 @@ Initial Values: `A = [15, 5, 24, 8, 3, 16, 10, 20]`
 ## 5. C Code Reference
 
 Your C code implementation is in [`mergeSort.c`](file:///Users/mitulaghara/Desktop/Marwadi%20University/Sem%205/DAA%20Lab/Lab3/mergeSort.c).
+
+---
+
+## 6. Sample Program Output
+
+```text
+Enter number of elements: 8
+Enter elements:
+15 5 24 8 3 16 10 20
+Sorted array:
+3 5 8 10 15 16 20 24 
+```
+
