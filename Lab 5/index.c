@@ -99,7 +99,7 @@ void main()
 
     for (i = 1; i <= no; i++)
     {
-        x[i] = 1.0;
+        x[i] = 0.0;
     }
 
     // greedy algorithm for knapsack

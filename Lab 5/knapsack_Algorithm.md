@@ -1,6 +1,6 @@
 # Fractional Knapsack Algorithm & Documentation
 
-This document contains the exact Knapsack algorithm, pseudocode, dry run trace, and complexity analysis based on your professor's handwritten notes and [`index.c`](./index.c).
+This document contains the exact Knapsack algorithm, pseudocode, dry run trace, complexity analysis, and sample output based on your professor's handwritten notes and [`index.c`](./index.c).
 
 ---
 
@@ -124,37 +124,43 @@ end Algorithm
 
 ---
 
-## 4. Dry Run Example
+## 4. Dry Run Example (5 Items)
 
-**Given:**
+**Given Items (`n = 5`):**
 
 | Item | Weight `w[i]` | Value `v[i]` | Ratio `v[i]/w[i]` |
 |:----:|:-------------:|:------------:|:-----------------:|
-| 1    | 10            | 60           | 6.0               |
-| 2    | 20            | 100          | 5.0               |
+| 1    | 20            | 100          | 5.0               |
+| 2    | 10            | 60           | 6.0               |
 | 3    | 30            | 120          | 4.0               |
+| 4    | 50            | 100          | 2.0               |
+| 5    | 40            | 120          | 3.0               |
 
 **Knapsack Capacity:** `cap = 50`
 
-**After sorting by ratio (descending):**
+**After sorting items by ratio (descending order):**
 
 | Item | `w[i]` | `v[i]` | `ratio` |
 |:----:|:------:|:------:|:-------:|
 | 1    | 10     | 60     | 6.0     |
 | 2    | 20     | 100    | 5.0     |
 | 3    | 30     | 120    | 4.0     |
+| 4    | 40     | 120    | 3.0     |
+| 5    | 50     | 100    | 2.0     |
 
-**Greedy Selection:**
+**Greedy Selection Process:**
 
-| i | `w[i]` | `cap` before | Condition   | `x[i]`     | Profit Added      | `cap` after |
-|:--:|:------:|:------------:|:-----------:|:-----------:|:-----------------:|:-----------:|
-| 1  | 10     | 50           | 10 ≤ 50 ✅  | 1.0         | 1.0 × 60 = 60     | 40          |
-| 2  | 20     | 40           | 20 ≤ 40 ✅  | 1.0         | 1.0 × 100 = 100   | 20          |
-| 3  | 30     | 20           | 30 > 20 ❌  | 20/30 ≈ 0.67| 0.67 × 120 = 80   | 0 (break)   |
+| i | `w[i]` | `cap` before | Condition   | `x[i]`      | Profit Added       | `cap` after |
+|:--:|:------:|:------------:|:-----------:|:------------:|:------------------:|:-----------:|
+| 1  | 10     | 50           | 10 ≤ 50 ✅   | 1.0          | 1.0 × 60 = 60      | 40          |
+| 2  | 20     | 40           | 20 ≤ 40 ✅   | 1.0          | 1.0 × 100 = 100    | 20          |
+| 3  | 30     | 20           | 30 > 20 ❌   | 20/30 ≈ 0.67 | 0.67 × 120 = 80    | 0 (break)   |
+| 4  | 40     | 0            | Not checked | 0.0          | 0                  | 0           |
+| 5  | 50     | 0            | Not checked | 0.0          | 0                  | 0           |
 
 **Optimal Profit = 60 + 100 + 80 = `240.00`**
 
-**X array = `[ 1.0, 1.0, 0.7 ]`**
+**X array = `[ 1.0, 1.0, 0.7, 0.0, 0.0 ]`**
 
 ---
 
@@ -179,10 +185,10 @@ Your C code implementation is in [`index.c`](./index.c) / [`knapSack.c`](./knapS
 
 ---
 
-## 7. Sample Program Output
+## 7. Sample Program Output (5 Items)
 
 ```text
-Enter the number of items: 3
+Enter the number of items: 5
 
 -----Item[1]------
 Enter the weight of the item: 20
@@ -196,22 +202,30 @@ Enter the value of the item: 60
 Enter the weight of the item: 30
 Enter the value of the item: 120
 
+-----Item[4]------
+Enter the weight of the item: 50
+Enter the value of the item: 100
+
+-----Item[5]------
+Enter the weight of the item: 40
+Enter the value of the item: 120
+
 Enter the capacity of the knapsack: 50
 
 Scenario Before Sorting
 
-Weight:      20     10     30
-Values:     100     60    120
-Ratios:     5.0    6.0    4.0
+Weight:      20     10     30     50     40
+Values:     100     60    120    100    120
+Ratios:     5.0    6.0    4.0    2.0    3.0
 
 
 Scenario After Sorting
 
-Weight:      10     20     30
-Values:      60    100    120
-Ratios:     6.0    5.0    4.0
+Weight:      10     20     30     40     50
+Values:      60    100    120    120    100
+Ratios:     6.0    5.0    4.0    3.0    2.0
 
-Xarray:     1.0    1.0    0.7
+Xarray:     1.0    1.0    0.7    0.0    0.0
 
 Optimal Profit: 240.00
 ```
