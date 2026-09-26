@@ -347,97 +347,29 @@ $$P_i = \frac{S_i \times 1000 + B_i}{\text{Cost}_i}$$
 ## 7. Sample Program Output
 
 ```text
-============================================
-   FLOOD RELIEF DECISION SUPPORT SYSTEM     
-============================================
-1. Display Current Distribution Plan
-2. Adapt to Changing Info (Road/Weather Update)
-3. Reset to Initial Flood Scenario
+1. Display Plan
+2. Update Condition
+3. Reset
 4. Exit
-Enter your choice: 1
+Enter choice: 1
 
-========================================================================================
-                GOVERNMENT FLOOD RELIEF RESOURCE ALLOCATION PLAN                        
-========================================================================================
+=== FLOOD RELIEF DISTRIBUTION PLAN ===
 
-[1] WAREHOUSE INITIAL INVENTORY:
-    * Food Packets     : 10000
-    * Medicine Kits    : 2500
-    * Rescue Boats     : 40
-    * Medical Personnel: 80
+Warehouse Stock: Food=10000, Med=2500, Boats=40, Staff=80
 
-[2] ROUTE & ACCESSIBILITY ANALYSIS (Handling Weather & Damaged Roads):
-----------------------------------------------------------------------------------------
-ID   | District                  | Cost/Dist | Status       | Optimized Path                  
-----------------------------------------------------------------------------------------
-1    | District A (North Delta)  | 71       | Reachable    | Supply Base (Hub) -> District B (River Basin) -> District A (North Delta)
-2    | District B (River Basin)  | 52       | Reachable    | Supply Base (Hub) -> District B (River Basin)
-3    | District C (Coastal Belt) | 101      | Reachable    | Supply Base (Hub) -> District B (River Basin) -> District A (North Delta) -> District C (Coastal Belt)
-4    | District D (Upland Hills) | 87       | Reachable    | Supply Base (Hub) -> District B (River Basin) -> District D (Upland Hills)
+Routes:
+District 1 (District A (North Delta)): Cost=71 | Path: Supply Base (Hub) -> District B (River Basin) -> District A (North Delta)
+District 2 (District B (River Basin)): Cost=52 | Path: Supply Base (Hub) -> District B (River Basin)
+District 3 (District C (Coastal Belt)): Cost=101 | Path: Supply Base (Hub) -> District B (River Basin) -> District A (North Delta) -> District C (Coastal Belt)
+District 4 (District D (Upland Hills)): Cost=87 | Path: Supply Base (Hub) -> District B (River Basin) -> District D (Upland Hills)
 
-[3] RESOURCE ALLOCATION BY PRIORITY (Severity & Beneficiaries vs Cost):
----------------------------------------------------------------------------------------------------------
-District             | Severity | Beneficiaries | Priority | Food (Req/Alloc) | Med (Req/Alloc)  | Boats (R/A)  | Staff(R/A)
----------------------------------------------------------------------------------------------------------
-District A (North Delta) | 5        | 4200         | 129.58   | 4500 / 4500      | 1200 / 1200      | 20 / 20      | 35 / 35   
-District B (River Basin) | 4        | 3100         | 136.54   | 3200 / 3200      | 800 / 800        | 15 / 15      | 25 / 25   
-District C (Coastal Belt) | 3        | 2400         | 53.47    | 2500 / 2300      | 500 / 500        | 8 / 5        | 15 / 15   
-District D (Upland Hills) | 2        | 1200         | 36.78    | 1200 / 0         | 300 / 0          | 2 / 0        | 10 / 5    
----------------------------------------------------------------------------------------------------------
-  Summary Metrics:
-  * Total Beneficiaries Targeted : 9700 / 10900 (88.99%)
-  * Cumulative Transportation Cost: 311
-========================================================================================
-
-============================================
-   FLOOD RELIEF DECISION SUPPORT SYSTEM     
-============================================
-1. Display Current Distribution Plan
-2. Adapt to Changing Info (Road/Weather Update)
-3. Reset to Initial Flood Scenario
-4. Exit
-Enter your choice: 2
-
---- DYNAMIC REAL-TIME UPDATE SIMULATION ---
-1. Update Road Condition (Clear / Damaged / Flooded & Blocked)
-2. Update Weather Forecast on Road Corridor
-Enter choice (1 or 2): 1
-Enter Road Endpoints (u v) [0=Supply Hub, 1=Dist A, 2=Dist B, 3=Dist C, 4=Dist D]: 0 2
-Enter Status (0: Normal, 1: Damaged/Waterlogged, 2: Completely Blocked): 2
->> Road condition between 0 and 2 updated!
-
->> Re-running Dijkstra Routing & Priority Resource Allocation...
-
-========================================================================================
-                GOVERNMENT FLOOD RELIEF RESOURCE ALLOCATION PLAN                        
-========================================================================================
-
-[1] WAREHOUSE INITIAL INVENTORY:
-    * Food Packets     : 10000
-    * Medicine Kits    : 2500
-    * Rescue Boats     : 40
-    * Medical Personnel: 80
-
-[2] ROUTE & ACCESSIBILITY ANALYSIS (Handling Weather & Damaged Roads):
-----------------------------------------------------------------------------------------
-ID   | District                  | Cost/Dist | Status       | Optimized Path                  
-----------------------------------------------------------------------------------------
-1    | District A (North Delta)  | 90       | Reachable    | Supply Base (Hub) -> District A (North Delta)
-2    | District B (River Basin)  | 109      | Reachable    | Supply Base (Hub) -> District A (North Delta) -> District B (River Basin)
-3    | District C (Coastal Belt) | 120      | Reachable    | Supply Base (Hub) -> District A (North Delta) -> District C (Coastal Belt)
-4    | District D (Upland Hills) | 140      | Reachable    | Supply Base (Hub) -> District A (North Delta) -> District C (Coastal Belt) -> District D (Upland Hills)
-
-[3] RESOURCE ALLOCATION BY PRIORITY (Severity & Beneficiaries vs Cost):
----------------------------------------------------------------------------------------------------------
-District             | Severity | Beneficiaries | Priority | Food (Req/Alloc) | Med (Req/Alloc)  | Boats (R/A)  | Staff(R/A)
----------------------------------------------------------------------------------------------------------
-District A (North Delta) | 5        | 4200         | 102.22   | 4500 / 4500      | 1200 / 1200      | 20 / 20      | 35 / 35   
-District B (River Basin) | 4        | 3100         | 65.14    | 3200 / 3200      | 800 / 800        | 15 / 15      | 25 / 25   
-District C (Coastal Belt) | 3        | 2400         | 45.00    | 2500 / 2300      | 500 / 500        | 8 / 5        | 15 / 15   
-District D (Upland Hills) | 2        | 1200         | 22.86    | 1200 / 0         | 300 / 0          | 2 / 0        | 10 / 5    
----------------------------------------------------------------------------------------------------------
-  Summary Metrics:
-  * Total Beneficiaries Targeted : 9700 / 10900 (88.99%)
-  * Cumulative Transportation Cost: 459
-========================================================================================
+Resource Allocation:
+District                  | Priority | Food(Req/Alloc) | Med(Req/Alloc) | Boats(Req/Alloc) | Staff(Req/Alloc)
+-------------------------------------------------------------------------------------------------
+District A (North Delta)  |   129.58 |  4500 / 4500    | 1200 / 1200  |  20 / 20       |  35 / 35 
+District B (River Basin)  |   136.54 |  3200 / 3200    |  800 / 800   |  15 / 15       |  25 / 25 
+District C (Coastal Belt) |    53.47 |  2500 / 2300    |  500 / 500   |   8 / 5        |  15 / 15 
+District D (Upland Hills) |    36.78 |  1200 / 0       |  300 / 0     |   2 / 0        |  10 / 5  
+-------------------------------------------------------------------------------------------------
+Total Transport Cost = 311
 ```

@@ -241,49 +241,18 @@ $$\text{Minimum Total Cost} = 4 + 5 + 10 = \mathbf{19}$$
 ## 7. Sample Program Output
 
 ```text
-============================================
-           KRUSKAL'S MST ALGORITHM          
-============================================
-
 Enter number of vertices: 4
 Enter number of edges: 5
+Enter edges (source destination weight):
+0 1 10
+0 2 6
+0 3 5
+1 3 15
+2 3 4
 
-Enter each edge as: <Source> <Destination> <Weight>
-(Vertices are numbered 0 to 3 or 1 to 4)
-
-Edge 1: 0 1 10
-Edge 2: 0 2 6
-Edge 3: 0 3 5
-Edge 4: 1 3 15
-Edge 5: 2 3 4
-
-Sorted Edges:
-Index  | Edge (u - v) | Weight  
--------------------------------
-1      |  2 - 3       | 4       
-2      |  0 - 3       | 5       
-3      |  0 - 2       | 6       
-4      |  0 - 1       | 10      
-5      |  1 - 3       | 15      
-
---- Edge Selection Trace ---
-Edge         | Weight   | Status       | Reason / Action     
-------------------------------------------------------------------
-( 2,  3)     | 4        | SELECTED     | Added to MST (No cycle)
-( 0,  3)     | 5        | SELECTED     | Added to MST (No cycle)
-( 0,  2)     | 6        | DISCARDED    | Rejected (Forms cycle)
-( 0,  1)     | 10       | SELECTED     | Added to MST (No cycle)
-------------------------------------------------------------------
-
-============================================
-     MINIMUM SPANNING TREE (MST) RESULT     
-============================================
-No.    | Edge (u - v) | Weight  
---------------------------------------------
-1      |  2 - 3       | 4       
-2      |  0 - 3       | 5       
-3      |  0 - 1       | 10      
---------------------------------------------
-Minimum Total Cost of Spanning Tree = 19
-============================================
+Edge 	Weight
+2 - 3 	4
+0 - 3 	5
+0 - 1 	10
+Total Cost = 19
 ```

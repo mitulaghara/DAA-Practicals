@@ -159,34 +159,9 @@ end Algorithm
 ## 7. Sample Program Output
 
 ```text
-==================================================
-           NAIVE STRING MATCHING ALGORITHM        
-==================================================
-
-Enter Text string (T): AABAACAADAABAABA
-Enter Pattern string (P): AABA
-
-Text Length (n)    : 16
-Pattern Length (m) : 4
-
---- Step-by-Step Shift Trace ---
-Shift (s) | Window       | Match?       | Details             
-------------------------------------------------------------
-0        | AABA         | MATCH        | Pattern matches at index 0
-1        | ABAA         | MISMATCH     | Mismatch at char 'B' != 'A'
-2        | BAAC         | MISMATCH     | Mismatch at char 'B' != 'A'
-3        | AACA         | MISMATCH     | Mismatch at char 'C' != 'B'
-4        | ACAA         | MISMATCH     | Mismatch at char 'C' != 'A'
-5        | CAAD         | MISMATCH     | Mismatch at char 'C' != 'A'
-6        | AADA         | MISMATCH     | Mismatch at char 'D' != 'B'
-7        | ADAA         | MISMATCH     | Mismatch at char 'D' != 'A'
-8        | DAAB         | MISMATCH     | Mismatch at char 'D' != 'A'
-9        | AABA         | MATCH        | Pattern matches at index 9
-10       | ABAA         | MISMATCH     | Mismatch at char 'B' != 'A'
-11       | BAAB         | MISMATCH     | Mismatch at char 'B' != 'A'
-12       | AABA         | MATCH        | Pattern matches at index 12
-------------------------------------------------------------
-
-Total Occurrences Found : 3
-Total Character Comparisons : 30
+Enter text: AABAACAADAABAABA
+Enter pattern: AABA
+Pattern found at index 0
+Pattern found at index 9
+Pattern found at index 12
 ```
