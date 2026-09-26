@@ -266,41 +266,19 @@ $$\text{Minimum Total Cost} = 2 + 3 + 6 + 5 = \mathbf{16}$$
 ## 7. Sample Program Output
 
 ```text
-============================================
-            PRIM'S MST ALGORITHM            
-============================================
-
 Enter number of vertices: 5
-
-Enter Adjacency Matrix (size 5 x 5):
-(Enter 0 if there is no edge between vertices)
-
+Enter adjacency matrix:
 0 2 0 6 0
 2 0 3 8 5
 0 3 0 0 7
 6 8 0 0 9
 0 5 7 9 0
 
---- Step-by-Step Prim's MST Construction Trace ---
-Step   | Picked Node  | Edge Added   | Edge Weight / Status     
-----------------------------------------------------------------------
-0      | Vertex 0      | Root (None)  | Starting Node (Key: 0)
-1      | Vertex 1      | ( 0,  1)     | Added to MST (Weight: 2)
-2      | Vertex 2      | ( 1,  2)     | Added to MST (Weight: 3)
-3      | Vertex 4      | ( 1,  4)     | Added to MST (Weight: 5)
-4      | Vertex 3      | ( 0,  3)     | Added to MST (Weight: 6)
-----------------------------------------------------------------------
-
-============================================
-        MINIMUM SPANNING TREE (MST)         
-============================================
-No.    | Edge (u - v) | Weight  
---------------------------------------------
-1      |  0 - 1       | 2       
-2      |  1 - 2       | 3       
-3      |  0 - 3       | 6       
-4      |  1 - 4       | 5       
---------------------------------------------
-Minimum Total Cost of Spanning Tree = 16
-============================================
+Edge 	Weight
+0 - 1 	2
+1 - 2 	3
+0 - 3 	6
+1 - 4 	5
+Total Cost = 16
 ```
+
